@@ -1,0 +1,7 @@
+services: 
+  app: 
+    build: .
+    image: primos-signup
+    container_name: primos-signup
+    ports: 
+      - 8003:3000
