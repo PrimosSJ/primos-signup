@@ -70,7 +70,7 @@ export default function Schedule() {
       </div>
       <div className='grid w-full grid-flow-col grid-cols-[max-content_repeat(5,_1fr)] grid-rows-[auto_repeat(8,_1fr)] rounded-xl border-2 border-solid border-blue overflow-hidden '>
         <span />
-        {[...Array(8).keys()].map(i => (
+        {[...Array(7).keys()].map(i => (
           <span key={i} className='row-divisor text-right font-bold px-4 py-2'>
             {(i = (i+1)*2) - 1}-{i}
           </span>
@@ -78,13 +78,13 @@ export default function Schedule() {
         {store.form.bussy_schedule?.map((value, i) => {
           const even = mod(i, 8 * 2) < 8
           const header =
-            i % 8 ? null : (
+            i % 7 ? null : (
               <span className={`text-center px-4 py-2 ${even? "bg-black": ""}`}>
-                <b>{['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'][i / 8]}</b>
+                <b>{['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'][i / 7]}</b>
               </span>
             )
           const classes = ["w-full", "h-full"]
-          const modulo = mod(i, 8)
+          const modulo = mod(i, 7)
           const schedule = value? store.form.bussy_schedule: store.form.desire_schedule
           if (!schedule[i - 1] || mod(i - 1, 8) > modulo)
             classes.push("rounded-t-xl")
