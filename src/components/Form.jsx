@@ -129,12 +129,6 @@ export default function Form({fullname}) {
               <b>Evita usar tu Gamer Tag</b> o cualquier apodo que sea difícil de relacionar contigo
               para alguien que no te conoce de primera mano.
             </p>
-            <div className="grid grid-cols-[minmax(0,_1fr)_auto] text-xs">
-              <span>✔️ Felipe Rojas → Pipe</span>
-              <span>❌ Felipe Rojas → pyeom</span>
-              <span>✔️ V. Mackenzie → Makenki</span>
-              <span>❌ V. Mackenzie → 3122</span>
-            </div>
           </div>
         }
       </Input>

@@ -37,6 +37,7 @@ export default function Schedule() {
       <span className="font-bold text-2xl">
         Rellena tu horario
       </span>
+
       <div className="flex gap-x-4 justify-between items-center">
         <span className="flex items-center text-gray">
           <CircleOne
@@ -45,10 +46,12 @@ export default function Schedule() {
           />
           &ensp;Importa tu horario
         </span>
+
         <Arrow
           size="1rem"
           fill="var(--gray)"
         />
+
         <span className={`flex items-center ${store.phase != 1? "text-gray": ""}`}>
           <CircleTwo
             size="1.5rem"
@@ -56,6 +59,7 @@ export default function Schedule() {
           />
           &ensp;Ajusta tu disponibilidad
         </span>
+
         <Arrow
           size="1rem"
           fill="var(--gray)"
@@ -68,24 +72,32 @@ export default function Schedule() {
           &ensp;Ingresa tu horario deseado
         </span>
       </div>
+
+
       <div className='grid w-full grid-flow-col grid-cols-[max-content_repeat(5,_1fr)] grid-rows-[auto_repeat(8,_1fr)] rounded-xl border-2 border-solid border-blue overflow-hidden '>
         <span />
-        {[...Array(7).keys()].map(i => (
+        {[...Array(8).keys()].map(i => (
           <span key={i} className='row-divisor text-right font-bold px-4 py-2'>
             {(i = (i+1)*2) - 1}-{i}
           </span>
         ))}
+
+
         {store.form.bussy_schedule?.map((value, i) => {
           const even = mod(i, 8 * 2) < 8
           const header =
-            i % 7 ? null : (
+            i % 8 ? null : (
               <span className={`text-center px-4 py-2 ${even? "bg-black": ""}`}>
-                <b>{['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'][i / 7]}</b>
+                <b>{['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'][i / 8]}</b>
               </span>
             )
+
+
           const classes = ["w-full", "h-full"]
-          const modulo = mod(i, 7)
+          const modulo = mod(i, 8)
           const schedule = value? store.form.bussy_schedule: store.form.desire_schedule
+
+
           if (!schedule[i - 1] || mod(i - 1, 8) > modulo)
             classes.push("rounded-t-xl")
           if (!schedule[i + 1] || mod(i + 1, 8) < modulo)
